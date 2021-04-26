@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-infra-apps-manager
+  namespace: argocd
+  labels:
+    gitops.ownedBy: cluster-infra-apps
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: cluster-infra-apps
+  source:
+    path: clusters/overlays/aws/argocd/apps
+    repoURL: https://github.com/pumphouse-p/openshift-cluster-infra-apps.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
