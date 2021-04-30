@@ -4,3 +4,4 @@ kind: Kustomization
 bases:
   - ../../base
   - ../../../manifests/argocd/apps/openshift-monitoring/base
+  - ../../../manifests/argocd/apps/openshift-file-integrity/base
