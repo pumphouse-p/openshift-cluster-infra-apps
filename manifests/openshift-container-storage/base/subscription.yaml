@@ -8,6 +8,6 @@ metadata:
 spec:
   channel: stable
   installPlanApproval: Automatic
-  name: openshift-container-storage
+  name: ocs-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
