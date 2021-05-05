@@ -6,3 +6,4 @@ metadata:
     argocd.argoproj.io/sync-wave: "-5"
   labels:
     openshift.io/cluster-monitoring: "true"
+    openshift.io/node-selector: ""
