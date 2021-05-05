@@ -3,6 +3,8 @@ kind: OperatorGroup
 metadata:
   namespace: openshift-file-integrity
   name: file-integrity-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-4"
 spec:
   targetNamespaces:
     - openshift-file-integrity
