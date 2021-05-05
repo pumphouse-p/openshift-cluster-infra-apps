@@ -5,3 +5,4 @@ bases:
   - ../../base
   - ../../../manifests/argocd/apps/openshift-monitoring/base
   - ../../../manifests/argocd/apps/openshift-file-integrity/base
+  - ../../../manifests/argocd/apps/openshift-logging/base
