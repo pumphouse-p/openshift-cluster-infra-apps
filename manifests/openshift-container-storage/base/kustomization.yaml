@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
   - ../../resource-locker/base
-  - node-labels.yaml
+#  - node-labels.yaml
+  - node-label-job.yaml
   - namespace.yaml
   - operator-group.yaml
   - subscription.yaml
