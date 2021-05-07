@@ -5,7 +5,7 @@ metadata:
   generateName: label-nodes-for-ocs-
   namespace: openshift-operators
   labels:
-    run: label-nodes-for-ocs-
+    run: label-nodes-for-ocs
   annotations:
     argocd.argoproj.io/hook: PreSync
 spec:
