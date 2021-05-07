@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: label-nodes-for-ocs
+  generateName: label-nodes-for-ocs-
+  namespace: openshift-operators
+  labels:
+    run: label-nodes-for-ocs-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      containers:
+      - name: label-nodes-for-ocs
+        image: registry.redhat.io/openshift4/ose-tools-rhel8:v4.6
+        command: 
+          - /bin/bash
+          - -c
+          - |
+            # Exit if there are not at least 3 worker nodes
+            export NUM_WORKERS=$(kubectl get no --no-headers=true -l node-role.kubernetes.io/worker | wc -l)
+
+            if [ $NUM_WORKERS -lt 3 ]; then
+              echo "Three (3) worker nodes are needed to successfully deploy OCS"
+              exit 1
+            fi
+
+            # We just label every worker node as a potential target for OCS
+            kubectl label node -l node-role.kubernetes.io/worker cluster.ocs.openshift.io/openshift-storage=''
+
+            exit 0
+      restartPolicy: Never
+      serviceAccount: gitops-operator
+      serviceAccountName: gitops-operator
+      terminationGracePeriodSeconds: 30

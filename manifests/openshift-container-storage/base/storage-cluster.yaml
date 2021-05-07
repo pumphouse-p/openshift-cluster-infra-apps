@@ -4,8 +4,10 @@ metadata:
   namespace: openshift-storage
   name: ocs-storagecluster
   annotations:
-    argocd.argoproj.io/sync-wave: "11"
+    argocd.argoproj.io/sync-wave: "15"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    uninstall.ocs.openshift.io/cleanup-policy: delete
+    uninstall.ops.openshift.io/mode: graceful
 spec:
   storageDeviceSets:
     - count: 1

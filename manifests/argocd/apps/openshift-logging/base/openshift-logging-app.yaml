@@ -8,7 +8,7 @@ metadata:
     gitops.ownedBy: cluster-infra-apps
 spec:
   destination:
-    namespace: argocd
+    namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-infra-apps
   source:

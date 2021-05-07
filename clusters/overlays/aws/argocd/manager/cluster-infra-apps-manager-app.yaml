@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cluster-infra-apps-manager
-  namespace: argocd
+  namespace: openshift-gitops
   labels:
     gitops.ownedBy: cluster-infra-apps
 spec:
