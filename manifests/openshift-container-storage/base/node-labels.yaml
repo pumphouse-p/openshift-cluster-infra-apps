@@ -1,0 +1,23 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: ResourceLocker
+metadata:
+  name: ocs-node-label
+  namespace: resource-locker
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  serviceAccountRef:
+    name: resource-locker-node-sa
+  patches:
+    - targetObjectRef:
+        apiVersion: v1
+        kind: Node
+        name: "*"
+      patchTemplate: |
+        metadata:
+          labels:
+            node-role.kubernetes.io/ocs: ""
+            cluster.ocs.openshift.io/openshift-storage: ""
+      patchType: application/strategic-merge-patch+json
+      id: ocs-node-label
