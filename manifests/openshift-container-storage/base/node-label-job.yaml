@@ -7,7 +7,7 @@ metadata:
   labels:
     run: label-nodes-for-ocs
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-4"
 spec:
   template:
     spec:
