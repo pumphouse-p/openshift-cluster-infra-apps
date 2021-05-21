@@ -8,3 +8,8 @@ bases:
   - ../../../manifests/argocd/apps/openshift-file-integrity/base
   - ../../../manifests/argocd/apps/openshift-logging/base
   - ../../../manifests/argocd/apps/openshift-container-storage/base
+  - ../../../manifests/argocd/apps/openshift-virtualization/base
+  - ../../../manifests/argocd/apps/quay/base
+
+patchesStrategicMerge:
+  - patches/enable-virt-emulation.yaml

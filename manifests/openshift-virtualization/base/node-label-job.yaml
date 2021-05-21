@@ -19,7 +19,7 @@ spec:
           - -c
           - |
             # We just label every worker node as a potential target for OpenShift Virtualization
-            kubectl label node -l node-role.kubernetes.io/worker cluster.ocs.openshift.io/openshift-storage=''
+            kubectl label node -l node-role.kubernetes.io/worker devices.kubevirt.io/kvm=""
 
             exit 0
       restartPolicy: Never
