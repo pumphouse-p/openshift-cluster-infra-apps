@@ -11,5 +11,5 @@ bases:
   - ../../../manifests/argocd/apps/openshift-virtualization/base
   - ../../../manifests/argocd/apps/quay/base
 
-patches:
-  - patches/enable-virt-emulation.yaml
+# patches:
+#  - patches/enable-virt-emulation.yaml
